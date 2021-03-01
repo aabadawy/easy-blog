@@ -113,6 +113,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/prettus/l5-repository" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/prettus/laravel-validation" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
