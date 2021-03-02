@@ -13,9 +13,9 @@
     @foreach($blogs as $blog)
         <div class="card m-1 p-1" style="width: 18rem;">
             <h3>{{$blog->title}}</h3>
-            {{ dd($blog->getFirstMediaUrl('images')) }}
+{{--            {{ dd($blog->getMedia()) }}--}}
 {{--            <img class="card-img-top" src="{{$blog->getFirstMediaUrl('images')}}" alt="Card image cap">--}}
-            <img class="card-img-top" src={{$blog->getFirstMediaUrl()}} alt="Card">
+            <img class="card-img-top" src={{$blog->getFirstMediaUrl('images')}} alt="Card">
             <div class="card-body">
                 <p class="card-text">{!! $blog->body !!}</p>
             </div>

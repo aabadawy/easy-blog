@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::resource('blogs', 'Web\BlogsController');
+Route::get('activity-log', 'Web\BlogsController@activity')->name('activity.log');

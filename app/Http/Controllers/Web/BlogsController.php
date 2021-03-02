@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Web;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
+use Spatie\QueryBuilder\AllowedFilter;
 use Spatie\QueryBuilder\QueryBuilder;
 
 class BlogsController extends Controller
@@ -17,8 +19,11 @@ class BlogsController extends Controller
     public function index(Request $request)
     {
         $blogs = QueryBuilder::for(Blog::class)
-            ->allowedFilters(['title', 'body'])
+            ->allowedFilters(['title', 'body', 'categories.name'])
+            ->allowedIncludes(['categories'])
             ->get();
+//        $blogs = Blog::whereHas('categories')->get();
+        return $blogs;
 //        return $blogs->first()->getMedia('images');
         return view('blogs.index', ['blogs' => $blogs]);
     }
@@ -68,7 +73,12 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blog = Blog::find(24);
+        $blog->title = 'Updated Again dude';
+        $blog->save();
+//        return Blog::where('id', 26)->get();
+//        $blog->delete();
+        return Activity::all();
     }
 
     /**
@@ -80,7 +90,6 @@ class BlogsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**
@@ -92,5 +101,12 @@ class BlogsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function activity()
+    {
+        activity()->log('Look mum, I logged something');
+        $lastActivity = Activity::all();
+        return $lastActivity->description;
     }
 }
