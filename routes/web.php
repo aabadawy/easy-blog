@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout');
+    dd(\App\Models\Blog::all());
 });
 
 Route::resource('blogs', 'Web\BlogsController');

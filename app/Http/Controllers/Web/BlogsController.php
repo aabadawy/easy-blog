@@ -19,6 +19,7 @@ class BlogsController extends Controller
         $blogs = QueryBuilder::for(Blog::class)
             ->allowedFilters(['title', 'body'])
             ->get();
+//        return $blogs->first()->getMedia('images');
         return view('blogs.index', ['blogs' => $blogs]);
     }
 
@@ -43,10 +44,9 @@ class BlogsController extends Controller
         $blog = Blog::create($request->only([
             'title', 'body'
         ]));
-            $blog->addMedia(storage_path('demo/test.jpeg'))
-            ->preservingOriginal()
-            ->toMediaCollection('image');;
-        return $blog;
+            $blog->addMediaFromRequest('image')
+            ->toMediaCollection('images');;
+        return redirect(route('blogs.index'));
     }
 
     /**

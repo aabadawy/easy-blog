@@ -10,10 +10,10 @@
             <label for="exampleFormControlTextarea1">Example textarea</label>
             <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-{{--        <div class="form-group">--}}
-{{--            <label for="image" >Image</label>--}}
-{{--            <input type="file">--}}
-{{--        </div>--}}
+        <div class="form-group">
+            <label for="image" >Image</label>
+            <input type="file" name="image">
+        </div>
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Submit">
         </div>
